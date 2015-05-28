@@ -1,0 +1,60 @@
+Expression:  ^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$  Rating: 12 [ Rate]  
+Description:   Email validator that adheres directly to the specification for email address naming. It allows for everything from ipaddress and country-code domains, to very rare characters in the username.  
+Matches:  [asmith@mactec.com], [foo12@foo.edu], [bob.smith@foo.tv]  [ More Details]  
+Non-Matches:  [joe], [@foo.com], [a@a]  [ Test Expression]  
+Submitted By:  Andy Smith  
+ 
+Expression:  ^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$  Rating: 0 [ Rate]  
+Description:   Email validation. With this short expression you can validate for proper email format. It's short and accurate.  
+Matches:  [bob-smith@foo.com], [bob.smith@foo.com], [bob_smith@foo.com]  [ More Details]  
+Non-Matches:  [-smith@foo.com], [.smith@foo.com], [smith@foo_com]  [ Test Expression]  
+Submitted By:  Eric Lebetsamer  
+ 
+Expression:  ^([\w\-\.]+)@((\[([0-9]{1,3}\.){3}[0-9]{1,3}\])|(([\w\-]+\.)+)([a-zA-Z]{2,4}))$  Rating: 0 [ Rate]  
+Description:   Expression 1 of 2 used to check email address syntax.  
+Matches:  [bob@somewhere.com], [bob.jones@[1.1.1.1]], [bob@a.b.c.d.info]  [ More Details]  
+Non-Matches:  [bob@com], [bob.jones@some.where], [bob@1.1.1.123]  [ Test Expression]  
+Submitted By:  David Lott  
+ 
+Expression:  ^(([-\w \.]+)|(""[-\w \.]+"") )?<([\w\-\.]+)@((\[([0-9]{1,3}\.){3}[0-9]{1,3}\])|(([\w\-]+\.)+)([a-zA-Z]{2,4}))>$  Rating: 0 [ Rate]  
+Description:   Expression 2 or 2 for matching email address syntax. This one matches the <angle bracket syntax>.  
+Matches:  [<ab@cd.ef>], [bob A. jones <ab@cd.ef>], [bob A. jones <ab@[1.1.1.111]>]  [ More Details]  
+Non-Matches:  [ab@cd.ef], ["bob A. jones <ab@cd.ef>], [bob A. jones <ab@1.1.1.111>]  [ Test Expression]  
+Submitted By:  David Lott  
+ 
+Expression:  ^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$  Rating: -1 [ Rate]  
+Description:   Easy expression that checks for valid email addresses.  
+Matches:  [somthing@someserver.com], [firstname.lastname@mailserver.domain.com], [username-something@some-server.]  [ More Details]  
+Non-Matches:  [username@someserver.domain.c], [somename@server.domain-com], [someone@something.se_eo]  [ Test Expression]  
+Submitted By:  Zrekam makerZ  
+ 
+Expression:  ^.+@[^\.].*\.[a-z]{2,}$  Rating: -2 [ Rate]  
+Description:   Most email validation regexps are outdated and ignore the fact that domain names can contain any foreign character these days, as well as the fact that anything before @ is acceptable. The only roman alphabet restriction is in the TLD, which for a long t ...  
+Matches:  [whatever@somewhere.museum], [foreignchars@myforeigncharsdomain.nu], [me+mysomething@mydomain.com]  [ More Details]  
+Non-Matches:  [a@b.c], [me@.my.com], [a@b.comFOREIGNCHAR]  [ Test Expression]  
+Submitted By:  Thor Larholm  
+ 
+Expression:  ^([\w\d\-\.]+)@{1}(([\w\d\-]{1,67})|([\w\d\-]+\.[\w\d\-]{1,67}))\.(([a-zA-Z\d]{2,4})(\.[a-zA-Z\d]{2})?)$  Rating: -2 [ Rate]  
+Description:   This pattern allows standard e-mail addresses (e.g. user@domain.com), sub domains (e.g. user@foo.domain.com), the new two- and four-letter domains (e.g. user@domain.tv and user@domain.name) and country codes (e.g. user@foo.com.us). Also, this patter foll ...  
+Matches:  [foo@foo.com], [foo@foo-foo.com.au], [foo@foo.foo.info]  [ More Details]  
+Non-Matches:  [foo@.com], [foo@foo..com], [foo@me@.com]  [ Test Expression]  
+Submitted By:  Laurence O'Donnell  
+ 
+Expression:  ^(([^<>;()[\]\\.,;:@"]+(\.[^<>()[\]\\.,;:@"]+)*)|(".+"))@((([a-z]([-a-z0-9]*[a-z0-9])?)|(#[0-9]+)|(\[((([01]?[0-9]{0,2})|(2(([0-4][0-9])|(5[0-5]))))\.){3}(([01]?[0-9]{0,2})|(2(([0-4][0-9])|(5[0-5]))))\]))\.)*(([a-z]([-a-z0-9]*[a-z0-9])?)|(#[0-9]+)|(\[((([01]?[0-9]{0,2})|(2(([0-4][0-9])|(5[0-5]))))\.){3}(([01]?[0-9]{0,2})|(2(([0-4][0-9])|(5[0-5]))))\]))$  Rating: -2 [ Rate]  
+Description:   This regular expression matches email addresses that match the format specified by RFC 821 (see the BNF notation at http://www.cis.ohio-state.edu/cgi-bin/rfc/rfc0821.html#page-30)  
+Matches:  [blah@[10.0.0.1]], [a@b.c]  [ More Details]  
+Non-Matches:  [non@match@.]  [ Test Expression]  
+Submitted By:  Jason Howat  
+ 
+Expression:  ^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.(([0-9]{1,3})|([a-zA-Z]{2,3})|(aero|coop|info|museum|name))$  Rating: -3 [ Rate]  
+Description:   Matches e-mail addresses, including some of the newer top-level-domain extensions, such as info, museum, name, etc. Also allows for emails tied directly to IP addresses.  
+Matches:  [example@example.com], [foo@bar.info], [blah@127.0.0.1]  [ More Details]  
+Non-Matches:  [broken@@example.com], [foo@bar.infp], [blah@.nospam.biz]  [ Test Expression]  
+Submitted By:  David Huyck  
+ 
+Expression:  ^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$  Rating: -4 [ Rate]  
+Description:   This expression matches email addresses, and checks that they are of the proper form. It checks to ensure the top level domain is between 2 and 4 characters long, but does not check the specific domain against a list (especially since there are so many ...  
+Matches:  [joe@aol.com], [joe@wrox.co.uk], [joe@domain.info]  [ More Details]  
+Non-Matches:  [a@b], [notanemail], [joe@@.]  [ Test Expression]  
+Submitted By:  Steven Smith  
+ 
